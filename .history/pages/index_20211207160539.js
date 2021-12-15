@@ -2,7 +2,8 @@ import Sidebar from '../components/Sidebar';
 
 export default function Home() {
   return (
-    <div className="bg-black h-screen overflow-hidden">
+    <div className="">
+      <h1>this is spotify</h1>
       <main>
         <Sidebar />
       </main>
