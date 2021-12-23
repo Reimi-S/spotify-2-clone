@@ -1,9 +1,9 @@
 import { SessionProvider } from 'next-auth/react';
 import 'tailwindcss/tailwind.css';
 
-function MyApp({ Component, pageProps: { session, ...pageProps } }) {
+function MyApp({ Component, pageProps }) {
   return (
-    <SessionProvider session={session}>
+    <SessionProvider>
       <Component {...pageProps} />
     </SessionProvider>
   );
