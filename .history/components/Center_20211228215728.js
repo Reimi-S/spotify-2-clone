@@ -6,7 +6,6 @@ import { useRecoilState, useRecoilValue } from 'recoil';
 import { playlistIdState, playlistState } from '../atoms/playlistAtoms';
 import spotifyApi from '../lib/spotify';
 import useSpotify from '../hooks/useSpotify';
-import Songs from './Songs';
 
 const colors = [
   'from-indigo-500',
@@ -60,17 +59,8 @@ function Center() {
           src={playlist?.images?.[0]?.url}
           aly=""
         />
-        <div>
-          <p>PLAYLIST</p>
-          <h1 className="text-2xl md:text-3xl xl:text-5xl font-bold">
-            {playlist?.name}
-          </h1>
-        </div>
+        <h1>Helloooooo</h1>
       </section>
-
-      <div>
-        <Songs />
-      </div>
     </div>
   );
 }
