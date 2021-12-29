@@ -8,13 +8,13 @@ function Song({ order, track }) {
   const [currentTrackId, setCurrentTrackId] =
     useRecoilState(currentTrackIdState);
 
-  const [isPlaying, setIsPlaying] = useRecoilState(isPlayingState);
+  const [isPlaying, setIsPlaying] = useSetRecoilState(isPlayingState);
 
   const playSong = () => {
     setCurrentTrackId(track.track.id);
     setIsPlaying(true);
     spotifyApi.play({
-      uris: [track.track.uri],
+      urls: [track.track.url],
     });
   };
 
