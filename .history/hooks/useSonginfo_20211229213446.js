@@ -1,0 +1,15 @@
+import { useState } from 'react/cjs/react.development';
+import { useRecoilState } from 'recoil';
+import { currentTrackIdState } from '../atoms/songAtom';
+import useSpotify from './useSpotify';
+
+function useSongInfo() {
+  const spotifyApi = useSpotify();
+  const [currentIdTrack, setCurrentIdTrack] =
+    useRecoilState(currentTrackIdState);
+  const [songInfo, setSongInfo] = useState;
+
+  return <div></div>;
+}
+
+export default useSongInfo;
