@@ -14,7 +14,7 @@ function useSongInfo() {
       if (currentIdTrack) {
         const trackInfo = await fetch(
           //`https://api.spotify.com/v1/tracks/${currentIdTrack}`,
-          `https://api.spotify.com/v1/me/player/play?device_id="+this._device_id"`,
+          `https://api.spotify.com/v1/me/player/play?device_id="+this._device_id`
           {
             headers: {
               Authorization: `Bearer ${spotifyApi.getAccessToken()}`,

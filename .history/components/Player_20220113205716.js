@@ -33,7 +33,7 @@ function Player() {
 
   const fetchCurrentSong = () => {
     if (!songInfo) {
-      spotifyApi.getMyCurrentPlayingTrack().then((data) => {
+      spotifyWebApi.getMyCurrentPlayingTrack().then((data) => {
         console.log('Now playing: ', data.body?.item);
         setCurrentIdTrack(data.body?.item?.id);
 
@@ -46,8 +46,7 @@ function Player() {
 
   const handlePlayPause = () => {
     spotifyApi.getMyCurrentPlaybackState().then((data) => {
-      if (data.body?.is_playing) {
-        //dont need ? mark
+      if (data.body.is_playing) {
         spotifyApi.pause();
         setIsPlaying(false);
       } else {

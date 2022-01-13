@@ -18,7 +18,7 @@ import { useEffect, useState } from 'react/cjs/react.development';
 import { useRecoilState } from 'recoil';
 import SpotifyWebApi from 'spotify-web-api-node';
 import { currentTrackIdState, isPlayingState } from '../atoms/songAtom';
-import useSongInfo from '../hooks/useSongInfo';
+import useSongInfo from '../hooks/useSonginfo';
 import useSpotify from '../hooks/useSpotify';
 
 function Player() {
@@ -33,7 +33,7 @@ function Player() {
 
   const fetchCurrentSong = () => {
     if (!songInfo) {
-      spotifyApi.getMyCurrentPlayingTrack().then((data) => {
+      spotifyWebApi.getMyCurrentPlayingTrack().then((data) => {
         console.log('Now playing: ', data.body?.item);
         setCurrentIdTrack(data.body?.item?.id);
 
@@ -46,8 +46,7 @@ function Player() {
 
   const handlePlayPause = () => {
     spotifyApi.getMyCurrentPlaybackState().then((data) => {
-      if (data.body?.is_playing) {
-        //dont need ? mark
+      if (data.body.is_playing) {
         spotifyApi.pause();
         setIsPlaying(false);
       } else {
@@ -58,7 +57,7 @@ function Player() {
   };
 
   useEffect(() => {
-    if (spotifyApi.getAccessToken() && !currentTrackId) {
+    if (spotifyApi.getAccessToken() && !currentIdTrack) {
       fetchCurrentSong();
       setVolume(50);
     }

@@ -47,7 +47,6 @@ function Player() {
   const handlePlayPause = () => {
     spotifyApi.getMyCurrentPlaybackState().then((data) => {
       if (data.body?.is_playing) {
-        //dont need ? mark
         spotifyApi.pause();
         setIsPlaying(false);
       } else {
